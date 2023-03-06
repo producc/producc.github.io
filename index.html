@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <title>Producc Search</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .textarea-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      textarea {
+        width: 95%;
+        height: 95%;
+        font-size: 2em;
+        font-family: 'Poppins', sans-serif;
+        line-height: normal;
+        resize: none;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: inherit;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ::selection {
+          background-color: red;
+          color: white;
+        }
+      }
+
+      ::placeholder {
+        color: var(--placeholder-color);
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background-color: black;
+          --text-color: white;
+          --placeholder-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          --background-color: white;
+          --text-color: black;
+          --placeholder-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      /* Add this section for San Francisco font */
+      @supports (-apple-system-font: SF Pro) {
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        }
+        textarea {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+        }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="textarea-container">
+      <textarea id="myTextArea" placeholder=""></textarea>
+    </div>
+    <script>
+      const placeholders = [
+        "rubber duck costume under $500",
+        "bight yellow duck mug",
+        "duck themed toilet brush, feather shaped bristles",
+        "duck umbrella, webbed-feet handle",
+        "duck shaped neck pillow, feather shaped filling",
+        "duck sunglasses, beak shaped frames",
+        "chewing gum duck flavored",
+        "elephant sized duck plushie",
+        "duckmobile, v8 engine, convertible",
+        "gaming duck",
+        "radio controlled duck that can take over the world"
+      ];
+      const textarea = document.getElementById("myTextArea");
+      let currentIndex = Math.floor(Math.random() * placeholders.length);
+      textarea.placeholder = placeholders[currentIndex];
+      textarea.addEventListener('input', () => {
+        if (textarea.value === '') {
+          currentIndex = (currentIndex + 1) % placeholders.length;
+          textarea.placeholder = placeholders[currentIndex];
+        }
+      });
+    </script>
+  </body>
+</html>
