@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -12,18 +11,16 @@
         overflow: hidden;
       }
       body {
-        overflow: hidden
-        background-color: white;
+        background-color: var(--background-color);
         color: var(--text-color);
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.8em;
+        font-size: 1.2em;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
       }
       .textarea-container {
-        overflow: hidden
         width: 100%;
         height: 75%;
         display: flex;
@@ -34,10 +31,9 @@
         left: 0;
       }
       textarea {
-        overflow: hidden
-        width: 87.5%;
+        width: 95%;
         height: 70%;
-        font-size: 1.8em;
+        font-size: 2em;
         font-family: 'Montserrat', sans-serif;
         line-height: normal;
         resize: none;
@@ -55,7 +51,7 @@
         }
       }
       ::placeholder {
-        color: rgba(0, 0, 0, 0.5);
+        color: var(--placeholder-color);
       }
       button {
         transform: translate(-50%, -50%);
