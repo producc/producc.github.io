@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Producc</title>
+    <title>Producc Search</title>
     <style>
       html,
       body {
@@ -14,15 +14,18 @@
       body {
         background-color: var(--background-color);
         color: var(--text-color);
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .textarea-container {
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
+        align-items: center;
         position: absolute;
         top: 0;
         left: 0;
@@ -31,36 +34,43 @@
         width: 95%;
         height: 95%;
         font-size: 2em;
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
+        font-family: 'Poppins', sans-serif;
         line-height: normal;
+        resize: none;
+        border: none;
+        outline: none;
         background-color: transparent;
         color: inherit;
-      }
-      ::selection {
-        background-color: #ffbb00;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        ::selection {
+          background-color: red;
+          color: white;
+        }
       }
       ::placeholder {
         color: var(--placeholder-color);
       }
       @media (prefers-color-scheme: dark) {
         :root {
-          --background-color: rgb(20, 20, 20);
-          --text-color: rgb(250, 250, 250);
-          --placeholder-color: rgba(250, 250, 250, 0.5);
+          --background-color: black;
+          --text-color: white;
+          --placeholder-color: rgba(255, 255, 255, 0.5);
         }
       }
       @media (prefers-color-scheme: light) {
         :root {
-          --background-color: rgb(250, 250, 250);
-          --text-color: rgb(20, 20, 20);
-          --placeholder-color: rgba(20, 20, 20, 0.5);
+          --background-color: white;
+          --text-color: black;
+          --placeholder-color: rgba(0, 0, 0, 0.5);
         }
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="textarea-container">
@@ -69,7 +79,7 @@
     <script>
       const placeholders = [
         "rubber duck costume under $500",
-        "bright yellow duck mug",
+        "bight yellow duck mug",
         "duck themed toilet brush, feather shaped bristles",
         "duck umbrella, webbed-feet handle",
         "duck shaped neck pillow, feather shaped filling",
@@ -78,8 +88,7 @@
         "elephant sized duck plushie",
         "duckmobile, v8 engine, convertible",
         "gaming duck",
-        "radio controlled duck that can take over the world",
-        "duck food, enough for 183 ducks"
+        "radio controlled duck that can take over the world"
       ];
       const textarea = document.getElementById("myTextArea");
       let currentIndex = Math.floor(Math.random() * placeholders.length);
