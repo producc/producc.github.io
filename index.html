@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Producc Search</title>
+    <title>Product Search</title>
     <style>
       html,
       body {
@@ -19,6 +19,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
       }
       .textarea-container {
         width: 100%;
@@ -53,6 +54,18 @@
       ::placeholder {
         color: var(--placeholder-color);
       }
+      button {
+        background-color: yellow;
+        color: black;
+        border: none;
+        padding: 1em 2em;
+        font-size: 1.2em;
+        margin-top: 1em;
+        cursor: pointer;
+        :hover {
+          background-color: darkgoldenrod;
+        }
+      }
       @media (prefers-color-scheme: dark) {
         :root {
           --background-color: black;
@@ -75,6 +88,7 @@
   <body>
     <div class="textarea-container">
       <textarea id="myTextArea" placeholder=""></textarea>
+      <button id="searchButton">Search Amazon</button>
     </div>
     <script>
       const placeholders = [
@@ -88,7 +102,8 @@
         "elephant sized duck plushie",
         "duckmobile, v8 engine, convertible",
         "gaming duck",
-        "radio controlled duck that can take over the world"
+        "radio controlled duck that can take over the world",
+        "duck food, enough for 183 ducks"
       ];
       const textarea = document.getElementById("myTextArea");
       let currentIndex = Math.floor(Math.random() * placeholders.length);
