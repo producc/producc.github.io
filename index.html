@@ -1,95 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Producc</title>
-    <style>
-      html,
-      body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+<head>
+  <meta charset="UTF-8">
+  <title>Producc</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body {
+      background-color: var(--background-color, rgb(250, 250, 250));
+      color: var(--text-color, rgb(20, 20, 20));
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2em;
+    }
+    .textarea-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    textarea {
+      width: 95%;
+      height: 95%;
+      font-size: 2em;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      line-height: normal;
+      background-color: transparent;
+      color: inherit;
+    }
+    ::selection {
+      background-color: #ffbb00;
+    }
+    ::placeholder {
+      color: var(--placeholder-color, rgba(20, 20, 20, 0.5));
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: rgb(20, 20, 20);
+        --text-color: rgb(250, 250, 250);
+        --placeholder-color: rgba(250, 250, 250, 0.5);
       }
-      body {
-        background-color: var(--background-color);
-        color: var(--text-color);
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 1.2em;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --background-color: rgb(250, 250, 250);
+        --text-color: rgb(20, 20, 20);
+        --placeholder-color: rgba(20, 20, 20, 0.5);
       }
-      .textarea-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        position: absolute;
-        top: 0;
-        left: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="textarea-container">
+    <textarea id="myTextArea" placeholder=""></textarea>
+  </div>
+  <script>
+    const placeholders = [
+      "rubber duck costume under $500",
+      "bright yellow duck mug",
+      "duck themed toilet brush, feather shaped bristles",
+      "duck umbrella, webbed-feet handle",
+      "duck shaped neck pillow, feather shaped filling",
+      "duck sunglasses, beak shaped frames",
+      "chewing gum duck flavored",
+      "elephant sized duck plushie",
+      "duckmobile, v8 engine, convertible",
+      "gaming duck",
+      "radio controlled duck that can take over the world",
+      "duck food, enough for 183 ducks"
+    ];
+    const textarea = document.getElementById("myTextArea");
+    let currentIndex = Math.floor(Math.random() * placeholders.length);
+    textarea.placeholder = placeholders[currentIndex];
+    textarea.addEventListener('input', () => {
+      if (textarea.value === '') {
+        currentIndex = (currentIndex + 1) % placeholders.length;
+        textarea.placeholder = placeholders[currentIndex];
       }
-      textarea {
-        width: 95%;
-        height: 95%;
-        font-size: 2em;
-        font-weight: 700;
-        font-family: 'Montserrat', sans-serif;
-        line-height: normal;
-        background-color: transparent;
-        color: inherit;
-      }
-      ::selection {
-        background-color: #ffbb00;
-      }
-      ::placeholder {
-        color: var(--placeholder-color);
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background-color: rgb(20, 20, 20);
-          --text-color: rgb(250, 250, 250);
-          --placeholder-color: rgba(250, 250, 250, 0.5);
-        }
-      }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --background-color: rgb(250, 250, 250);
-          --text-color: rgb(20, 20, 20);
-          --placeholder-color: rgba(20, 20, 20, 0.5);
-        }
-      }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body>
-    <div class="textarea-container">
-      <textarea id="myTextArea" placeholder=""></textarea>
-    </div>
-    <script>
-      const placeholders = [
-        "rubber duck costume under $500",
-        "bright yellow duck mug",
-        "duck themed toilet brush, feather shaped bristles",
-        "duck umbrella, webbed-feet handle",
-        "duck shaped neck pillow, feather shaped filling",
-        "duck sunglasses, beak shaped frames",
-        "chewing gum duck flavored",
-        "elephant sized duck plushie",
-        "duckmobile, v8 engine, convertible",
-        "gaming duck",
-        "radio controlled duck that can take over the world",
-        "duck food, enough for 183 ducks"
-      ];
-      const textarea = document.getElementById("myTextArea");
-      let currentIndex = Math.floor(Math.random() * placeholders.length);
-      textarea.placeholder = placeholders[currentIndex];
-      textarea.addEventListener('input', () => {
-        if (textarea.value === '') {
-          currentIndex = (currentIndex + 1) % placeholders.length;
-          textarea.placeholder = placeholders[currentIndex];
-        }
-      });
-    </script>
-  </body>
+    });
+  </script>
+</body>
 </html>
