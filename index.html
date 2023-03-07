@@ -67,15 +67,13 @@
         transform: translate(-50%, -75%);
         border: none;
         border-radius: 5px;
-        color: var(background-color);
-        box-shadow: 0 0 40px 40px #FFBB00 inset, 0 0 0 0 #FFBB00;
-        transition: all 150ms ease-in-out;
+        color: var(--background-color);
       }
       button:hover {
         border: 5px;
         color: #FFBB00;
         cursor: hover;
-        background-color: transparent;
+        background-color: var(--background-color);
       }
       @media (prefers-color-scheme: dark) {
         :root {
