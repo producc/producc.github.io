@@ -1,4 +1,4 @@
-<!DOCUTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -15,7 +15,7 @@
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: 'Montserrat', sans-serif;
-        font-size: 1.8em;
+        font-size: 1.2em;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -32,13 +32,14 @@
         left: 0;
       }
       textarea {
-        width: 87.5%;
-        height: 70%;
-        font-size: 1.8em;
+        width: 70%;
+        height: 3.5em;
+        font-size: 2.8em;
         font-family: 'Montserrat', sans-serif;
         line-height: normal;
         resize: none;
         border: none;
+        font-weight: 400;
         outline: none;
         background-color: transparent;
         color: inherit;
@@ -46,48 +47,100 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        ::selection {
-          background-color: red;
-          color: white;
-        }
-      }
+        overflow: hidden;
+      } 
       ::placeholder {
         color: var(--placeholder-color);
+        text-overflow: ellipsis;
       }
-      button {
+      #searchButton {
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         font-family: 'Montserrat', sans-serif;
         padding: 10px 20px;
-        font-size: 1.2em;
+        font-size: 1.8em;
         position: absolute;
-        top: 100%;
+        top: 87.5%;
         left: 50%;
         cursor: pointer;
         background-color: #ffbb00;
-        border: none;
+        border: solid;
+        border-color: #ffbb00;
         font-weight: 500;
         border-radius: 5px;
-        color: white;
+        color: var(--background-color);
       }
-      button:hover {
-        border: 5px;
-        border-color: #FFBB00;
-        color: #FFBB00;
-        background-color: white;
+      #searchButton:hover {
+        color: #ffbb00;
+        background-color: var(--background-color);
+      }      
+      #produccTitle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        transform: translate(0%, 0%);
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 20px;
+        font-size: 0.9em;
+        position: absolute;
+        background-color: #ffbb00;
+        border: solid;
+        border-color: #ffbb00;
+        font-weight: 500;
+        border-radius: 5px;
+        color: var(--background-color);
       }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background-color: black;
-          --text-color: white;
-          --placeholder-color: rgba(255, 255, 255, 0.5);
-        }
+      #homeButton {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        transform: translate(-90%, 0%);
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 20px;
+        font-size: 0.9em;
+        position: absolute;
+        cursor: pointer;
+        background-color: #ffbb00;
+        border: solid;
+        border-color: #ffbb00;
+        font-weight: 500;
+        border-radius: 5px;
+        color: var(--background-color);
       }
-      @media (prefers-color-scheme: light) {
-        :root {
-          --background-color: white;
-          --text-color: black;
-          --placeholder-color: rgba(0, 0, 0, 0.5);
-        }
+      #homeButton:hover {
+        color: #ffbb00;
+        background-color: var(--background-color);
+      }
+      #billButton {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        transform: translate(0%, 0%);
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 20px;
+        font-size: 0.9em;
+        position: absolute;
+        cursor: pointer;
+        background-color: transparent;
+        border: solid;
+        font-weight: 500;
+        border-radius: 5px;
+        border-color: transparent;
+        color: #ffbb00;
+      }
+      #billButton:hover {
+        color: #ffbb00;
+        border: solid;
+        border-color: #ffbb00;
+        border-radius: 5px;
+        background-color: var(--background-color);
+      }
+      :root {
+        --background-color: white;
+        --text-color: black;
+        --placeholder-color: rgba(0, 0, 0, 0.5);
+      }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,7 +149,10 @@
   <body>
     <div class="textarea-container">
       <textarea id="myTextArea" placeholder=""></textarea>
-      <button id="searchButton">Search</button>
+      <button onclick="search()" id="searchButton">Search</button>
+      <button onclick="home()" id="homeButton">Home</button>
+      <button tabindex="-1"id="produccTitle">Producc</button>
+      <button onclick="bill()" id="billButton">Bill</button>
     </div>
     <script>
       const placeholders = [
@@ -112,6 +168,33 @@
           textarea.placeholder = placeholders[currentIndex];
         }
       });
+      function search() {
+        function search() {
+        const searchTerm = document.getElementById("myTextArea").value;
+        const endpoint = 'https://webservices.amazon.com/onca/xml';
+        const accessKeyId = 'YOUR_ACCESS_KEY_ID';
+        const secretAccessKey = 'YOUR_SECRET_ACCESS_KEY';
+        const associateTag = 'producc-21';
+        const operation = 'ItemSearch';
+        const service = 'AWSECommerceService';
+        const version = '2013-08-01';
+        const responseGroup = 'Images,ItemAttributes,Offers';
+        const keywords = encodeURIComponent(searchTerm);
+
+        const url = `${endpoint}?Service=${service}&Operation=${operation}&Version=${version}&AssociateTag=${associateTag}&Keywords=${keywords}&ResponseGroup=${responseGroup}&AWSAccessKeyId=${accessKeyId}`;
+
+        fetch(url, {mode: 'cors'})
+          .then(response => response.text())
+          .then(data => console.log(data))
+          .catch(error => console.log(error));
+        }
+      }
+      function home() {
+        window.open("https://produ.cc/", "_self");
+      }
+      function bill() {
+        window.open("https://produ.cc/bill", "_self");
+      }
     </script>
   </body>
 </html>
