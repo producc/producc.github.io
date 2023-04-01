@@ -91,51 +91,6 @@
         border-radius: 5px;
         color: var(--background-color);
       }
-      #homeButton {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: translate(-90%, 0%);
-        font-family: 'Montserrat', sans-serif;
-        padding: 10px 20px;
-        font-size: 0.9em;
-        position: absolute;
-        cursor: pointer;
-        background-color: #ffbb00;
-        border: solid;
-        border-color: #ffbb00;
-        font-weight: 500;
-        border-radius: 5px;
-        color: var(--background-color);
-      }
-      #homeButton:hover {
-        color: #ffbb00;
-        background-color: var(--background-color);
-      }
-      #billButton {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        transform: translate(0%, 0%);
-        font-family: 'Montserrat', sans-serif;
-        padding: 10px 20px;
-        font-size: 0.9em;
-        position: absolute;
-        cursor: pointer;
-        background-color: transparent;
-        border: solid;
-        font-weight: 500;
-        border-radius: 5px;
-        border-color: transparent;
-        color: #ffbb00;
-      }
-      #billButton:hover {
-        color: #ffbb00;
-        border: solid;
-        border-color: #ffbb00;
-        border-radius: 5px;
-        background-color: var(--background-color);
-      }
       :root {
         --background-color: white;
         --text-color: black;
@@ -150,9 +105,7 @@
     <div class="textarea-container">
       <textarea id="myTextArea" placeholder=""></textarea>
       <button onclick="search()" id="searchButton">Search</button>
-      <button onclick="home()" id="homeButton">Home</button>
       <button tabindex="-1"id="produccTitle">Producc</button>
-      <button onclick="bill()" id="billButton">Bill</button>
     </div>
     <script>
       const placeholders = [
@@ -188,12 +141,6 @@
           .then(data => console.log(data))
           .catch(error => console.log(error));
         }
-      }
-      function home() {
-        window.open("https://produ.cc/", "_self");
-      }
-      function bill() {
-        window.open("https://produ.cc/bill", "_self");
       }
     </script>
   </body>
