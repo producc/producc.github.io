@@ -1,0 +1,77 @@
+/* Global Styles */
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f5f5f5;
+	color: #333;
+}
+
+header {
+	background-color: #ffcc00;
+	padding: 1em;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+nav li a {
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+nav li a:hover {
+	color: #fff;
+}
+
+main {
+	margin: 2em auto;
+	max-width: 800px;
+	text-align: center;
+}
+
+section {
+	padding: 2em;
+	background-color: #fff;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+}
+
+h1 {
+	font-size: 2.5em;
+	margin-bottom: 0.5em;
+}
+
+form input[type="text"] {
+	width: 80%;
+	padding: 0.5em;
+	border-radius: 5px;
+	border: none;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+form button[type="submit"] {
+	background-color: #ffcc00;
+	color: #fff;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+form button[type="submit"]:hover {
+	background-color: #f2b200;
+}
+
+footer {
+	background-color: #333;
+	padding: 1em;
+	color: #fff;
+	text-align: center;
+}
