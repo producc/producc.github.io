@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Error</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .error-container {
+        width: 70%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        background-color: #efefef;
+        border-radius: 5px;
+      }
+      .error-code {
+        font-size: 6em;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+      .error-message {
+        font-size: 2em;
+        font-weight: 500;
+        margin-bottom: 20px;
+      }
+      .error-description {
+        font-size: 1.2em;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+      #homeButton {
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 20px;
+        font-size: 1.8em;
+        cursor: pointer;
+        background-color: #ffbb00;
+        border: solid;
+        border-color: #ffbb00;
+        font-weight: 500;
+        border-radius: 5px;
+        color: var(--background-color);
+      }
+      #homeButton:hover {
+        color: #ffbb00;
+        background-color: var(--background-color);
+      }      
+      #produccTitle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        transform: translate(0%, 0%);
+        font-family: 'Montserrat', sans-serif;
+        padding: 10px 20px;
+        font-size: 0.9em;
+        position: absolute;
+        background-color: #ffbb00;
+        border: solid;
+        border-color: #ffbb00;
+        font-weight: 500;
+        border-radius: 5px;
+        color: var(--background-color);
+      }
+      :root {
+        --background-color: white;
+        --text-color: black;
+        --placeholder-color: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="error-container">
+      <div class="error-code">404</div>
+      <div class="error-message">Oops! Page not found</div>
+      <div class="error-description">The page you are looking for might have been removed, had its name changed or is temporarily unavailable.</div>
+      <button onclick="goHome()" id="homeButton">Home</button>
+    </div>
+    <script>
+      function goHome() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
